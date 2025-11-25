@@ -1,0 +1,128 @@
+[
+    {
+        "tierName": "Free",
+        "storage": "512 MB",
+        "ram": 0,
+        "vCpu": 0,
+        "basePrice": 0,
+        "markedUpPrice": 0,
+        "finalPrice": 0
+    },
+    {
+        "tierName": "M10",
+        "storage": "10 GB",
+        "ram": "1.7 GB",
+        "vCpu": 0.5,
+        "basePrice": 0.1,
+        "markedUpPrice": 0.01,
+        "finalPrice": 0.11
+    },
+    {
+        "tierName": "M20",
+        "storage": "20 GB",
+        "ram": "4 GB",
+        "vCpu": 1,
+        "basePrice": 0.23,
+        "markedUpPrice": 0.023,
+        "finalPrice": 0.25
+    },
+    {
+        "tierName": "M30",
+        "storage": "40 GB",
+        "ram": "8 GB",
+        "vCpu": 2,
+        "basePrice": 0.54,
+        "markedUpPrice": 0.054,
+        "finalPrice": 0.59
+    },
+    {
+        "tierName": "M40",
+        "storage": "80 GB",
+        "ram": "16 GB",
+        "vCpu": 4,
+        "basePrice": 1.05,
+        "markedUpPrice": 0.105,
+        "finalPrice": 1.16
+    },
+    {
+        "tierName": "M50",
+        "storage": "160 GB",
+        "ram": "32 GB",
+        "vCpu": 8,
+        "basePrice": 2.02,
+        "markedUpPrice": 0.202,
+        "finalPrice": 2.22
+    },
+    {
+        "tierName": "M60",
+        "storage": "320 GB",
+        "ram": "64 GB",
+        "vCpu": 16,
+        "basePrice": 4.02,
+        "markedUpPrice": 0.402,
+        "finalPrice": 4.42
+    },
+    {
+        "tierName": "M80",
+        "storage": "750 GB",
+        "ram": "128 GB",
+        "vCpu": 32,
+        "basePrice": 7.48,
+        "markedUpPrice": 0.748,
+        "finalPrice": 8.23
+    },
+    {
+        "tierName": "M140",
+        "storage": "1000 GB",
+        "ram": "192 GB",
+        "vCpu": 48,
+        "basePrice": 11.56,
+        "markedUpPrice": 1.156,
+        "finalPrice": 12.72
+    },
+    {
+        "tierName": "M200",
+        "storage": "1500 GB",
+        "ram": "256 GB",
+        "vCpu": 64,
+        "basePrice": 15.81,
+        "markedUpPrice": 1.581,
+        "finalPrice": 17.39
+    },
+    {
+        "tierName": "M250",
+        "storage": "1750 GB",
+        "ram": "320 GB",
+        "vCpu": 80,
+        "basePrice": 19.75,
+        "markedUpPrice": 1.975,
+        "finalPrice": 21.73
+    },
+    {
+        "tierName": "M300",
+        "storage": "2000 GB",
+        "ram": "360 GB",
+        "vCpu": 96,
+        "basePrice": 23.66,
+        "markedUpPrice": 2.366,
+        "finalPrice": 26.03
+    },
+    {
+        "tierName": "M400",
+        "storage": "3000 GB",
+        "ram": "512 GB",
+        "vCpu": 64,
+        "basePrice": 25.58,
+        "markedUpPrice": 2.558,
+        "finalPrice": 28.14
+    },
+    {
+        "tierName": "M600",
+        "storage": "4096 GB",
+        "ram": "640 GB",
+        "vCpu": 80,
+        "basePrice": 32.61,
+        "markedUpPrice": 3.261,
+        "finalPrice": 35.87
+    }
+]
