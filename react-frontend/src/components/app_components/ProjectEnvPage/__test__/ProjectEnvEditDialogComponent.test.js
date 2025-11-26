@@ -9,13 +9,15 @@ import { Provider } from "react-redux";
 import * as models from "../../../models";
 
 test("renders projectEnv edit dialog", async () => {
-    const store = init({ models });
-    render(
-        <Provider store={store}>
-            <MemoryRouter>
-                <ProjectEnvEditDialogComponent show={true} />
-            </MemoryRouter>
-        </Provider>
-    );
-    expect(screen.getByRole("projectEnv-edit-dialog-component")).toBeInTheDocument();
+  const store = init({ models });
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ProjectEnvEditDialogComponent show={true} />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(
+    screen.getByRole("projectEnv-edit-dialog-component"),
+  ).toBeInTheDocument();
 });

@@ -6,7 +6,7 @@ const sendMailService = require("../cbServices/nodeMailer/sendMailService");
 const mailQues = new Queue("mailQues", { connection });
 
 const createMailQueWorker = (app) => {
- const superAdmin = "dhannisha@codebridge.my";
+  const superAdmin = "dhannisha@codebridge.my";
   const worker = new Worker(
     "mailQues",
     async (job) => {

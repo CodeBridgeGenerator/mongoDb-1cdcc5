@@ -1,19 +1,18 @@
-
 import { faker } from "@faker-js/faker";
-export default (user,count) => {
-    let data = [];
-    for (let i = 0; i < count; i++) {
-        const fake = {
-userId: faker.lorem.sentence(""),
-projectId: faker.lorem.sentence(""),
-mongodbUser: faker.lorem.sentence(""),
-mongodbPassword: faker.lorem.sentence(""),
-role: faker.lorem.sentence(""),
+export default (user, count) => {
+  let data = [];
+  for (let i = 0; i < count; i++) {
+    const fake = {
+      userId: faker.lorem.sentence(""),
+      projectId: faker.lorem.sentence(""),
+      mongodbUser: faker.lorem.sentence(""),
+      mongodbPassword: faker.lorem.sentence(""),
+      role: faker.lorem.sentence(""),
 
-updatedBy: user._id,
-createdBy: user._id
-        };
-        data = [...data, fake];
-    }
-    return data;
+      updatedBy: user._id,
+      createdBy: user._id,
+    };
+    data = [...data, fake];
+  }
+  return data;
 };

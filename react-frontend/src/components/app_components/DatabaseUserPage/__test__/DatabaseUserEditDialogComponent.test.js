@@ -9,13 +9,15 @@ import { Provider } from "react-redux";
 import * as models from "../../../models";
 
 test("renders databaseUser edit dialog", async () => {
-    const store = init({ models });
-    render(
-        <Provider store={store}>
-            <MemoryRouter>
-                <DatabaseUserEditDialogComponent show={true} />
-            </MemoryRouter>
-        </Provider>
-    );
-    expect(screen.getByRole("databaseUser-edit-dialog-component")).toBeInTheDocument();
+  const store = init({ models });
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <DatabaseUserEditDialogComponent show={true} />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(
+    screen.getByRole("databaseUser-edit-dialog-component"),
+  ).toBeInTheDocument();
 });

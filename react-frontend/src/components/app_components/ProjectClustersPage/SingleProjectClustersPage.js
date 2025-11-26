@@ -9,44 +9,50 @@ import client from "../../../services/restClient";
 import CommentsSection from "../../common/CommentsSection";
 import ProjectLayout from "../../Layouts/ProjectLayout";
 
-
 const SingleProjectClustersPage = (props) => {
-    const navigate = useNavigate();
-    const urlParams = useParams();
-    const [_entity, set_entity] = useState({});
+  const navigate = useNavigate();
+  const urlParams = useParams();
+  const [_entity, set_entity] = useState({});
   const [isHelpSidebarVisible, setHelpSidebarVisible] = useState(false);
 
-    
+  useEffect(() => {
+    //on mount
+    client
+      .service("projectClusters")
+      .get(urlParams.singleProjectClustersId, {
+        query: {
+          $populate: [
+            {
+              path: "createdBy",
+              service: "users",
+              select: ["name"],
+            },
+            {
+              path: "updatedBy",
+              service: "users",
+              select: ["name"],
+            },
+          ],
+        },
+      })
+      .then((res) => {
+        set_entity(res || {});
+      })
+      .catch((error) => {
+        console.log({ error });
+        props.alert({
+          title: "ProjectClusters",
+          type: "error",
+          message: error.message || "Failed get projectClusters",
+        });
+      });
+  }, [props, urlParams.singleProjectClustersId]);
 
-    useEffect(() => {
-        //on mount
-        client
-            .service("projectClusters")
-            .get(urlParams.singleProjectClustersId, { query: { $populate: [            {
-                path: "createdBy",
-                service: "users",
-                select: ["name"],
-              },{
-                path: "updatedBy",
-                service: "users",
-                select: ["name"],
-              },] }})
-            .then((res) => {
-                set_entity(res || {});
-                
-            })
-            .catch((error) => {
-                console.log({ error });
-                props.alert({ title: "ProjectClusters", type: "error", message: error.message || "Failed get projectClusters" });
-            });
-    }, [props,urlParams.singleProjectClustersId]);
+  const goBack = () => {
+    navigate("/projectClusters");
+  };
 
-
-    const goBack = () => {
-        navigate("/projectClusters");
-    };
-
-      const toggleHelpSidebar = () => {
+  const toggleHelpSidebar = () => {
     setHelpSidebarVisible(!isHelpSidebarVisible);
   };
 
@@ -72,86 +78,106 @@ const SingleProjectClustersPage = (props) => {
       });
   };
 
-    const menuItems = [
-        {
-            label: "Copy link",
-            icon: "pi pi-copy",
-            command: () => copyPageLink(),
-        },
-        {
-            label: "Help",
-            icon: "pi pi-question-circle",
-            command: () => toggleHelpSidebar(),
-        },
-    ];
+  const menuItems = [
+    {
+      label: "Copy link",
+      icon: "pi pi-copy",
+      command: () => copyPageLink(),
+    },
+    {
+      label: "Help",
+      icon: "pi pi-question-circle",
+      command: () => toggleHelpSidebar(),
+    },
+  ];
 
-    return (
-        <ProjectLayout>
-        <div className="col-12 flex flex-column align-items-center">
-            <div className="col-12">
-                <div className="flex align-items-center justify-content-between">
-                <div className="flex align-items-center">
-                    <Button className="p-button-text" icon="pi pi-chevron-left" onClick={() => goBack()} />
-                    <h3 className="m-0">Project Clusters</h3>
-                    <SplitButton
-                        model={menuItems.filter(
-                        (m) => !(m.icon === "pi pi-trash" && items?.length === 0),
-                        )}
-                        dropdownIcon="pi pi-ellipsis-h"
-                        buttonClassName="hidden"
-                        menuButtonClassName="ml-1 p-button-text"
-                    />
-                </div>
-                
-                {/* <p>projectClusters/{urlParams.singleProjectClustersId}</p> */}
+  return (
+    <ProjectLayout>
+      <div className="col-12 flex flex-column align-items-center">
+        <div className="col-12">
+          <div className="flex align-items-center justify-content-between">
+            <div className="flex align-items-center">
+              <Button
+                className="p-button-text"
+                icon="pi pi-chevron-left"
+                onClick={() => goBack()}
+              />
+              <h3 className="m-0">Project Clusters</h3>
+              <SplitButton
+                model={menuItems.filter(
+                  (m) => !(m.icon === "pi pi-trash" && items?.length === 0),
+                )}
+                dropdownIcon="pi pi-ellipsis-h"
+                buttonClassName="hidden"
+                menuButtonClassName="ml-1 p-button-text"
+              />
             </div>
-            <div className="card w-full">
-                <div className="grid ">
 
-            <div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">project_id</label><p className="m-0 ml-3" >{_entity?.projectId}</p></div>
-<div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">cluster_name</label><p className="m-0 ml-3" >{_entity?.clusterName}</p></div>
-<div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">tier_name</label><p className="m-0 ml-3" >{_entity?.tierName}</p></div>
-<div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">provider</label><p className="m-0 ml-3" >{_entity?.provider}</p></div>
-<div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">region</label><p className="m-0 ml-3" >{_entity?.region}</p></div>
-<div className="col-12 md:col-6 lg:col-3"><label className="text-sm text-gray-600">status</label><p className="m-0 ml-3" >{_entity?.status}</p></div>
-            
+            {/* <p>projectClusters/{urlParams.singleProjectClustersId}</p> */}
+          </div>
+          <div className="card w-full">
+            <div className="grid ">
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">project_id</label>
+                <p className="m-0 ml-3">{_entity?.projectId}</p>
+              </div>
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">cluster_name</label>
+                <p className="m-0 ml-3">{_entity?.clusterName}</p>
+              </div>
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">tier_name</label>
+                <p className="m-0 ml-3">{_entity?.tierName}</p>
+              </div>
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">provider</label>
+                <p className="m-0 ml-3">{_entity?.provider}</p>
+              </div>
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">region</label>
+                <p className="m-0 ml-3">{_entity?.region}</p>
+              </div>
+              <div className="col-12 md:col-6 lg:col-3">
+                <label className="text-sm text-gray-600">status</label>
+                <p className="m-0 ml-3">{_entity?.status}</p>
+              </div>
 
-                    <div className="col-12">&nbsp;</div>
-                </div>
+              <div className="col-12">&nbsp;</div>
             </div>
-         </div>
+          </div>
+        </div>
 
-      
-
-
-      <CommentsSection
-        recordId={urlParams.singleProjectClustersId}
-        user={props.user}
-        alert={props.alert}
-        serviceName="projectClusters"
-      />
-      <div
-        id="rightsidebar"
-        className={classNames("overlay-auto z-1 surface-overlay shadow-2 absolute right-0 w-20rem animation-duration-150 animation-ease-in-out", { "hidden" : !isHelpSidebarVisible })}
-        style={{ top: "60px", height: "calc(100% - 60px)" }}
-      >
-        <div className="flex flex-column h-full p-4">
-          <span className="text-xl font-medium text-900 mb-3">Help bar</span>
-          <div className="border-2 border-dashed surface-border border-round surface-section flex-auto"></div>
+        <CommentsSection
+          recordId={urlParams.singleProjectClustersId}
+          user={props.user}
+          alert={props.alert}
+          serviceName="projectClusters"
+        />
+        <div
+          id="rightsidebar"
+          className={classNames(
+            "overlay-auto z-1 surface-overlay shadow-2 absolute right-0 w-20rem animation-duration-150 animation-ease-in-out",
+            { hidden: !isHelpSidebarVisible },
+          )}
+          style={{ top: "60px", height: "calc(100% - 60px)" }}
+        >
+          <div className="flex flex-column h-full p-4">
+            <span className="text-xl font-medium text-900 mb-3">Help bar</span>
+            <div className="border-2 border-dashed surface-border border-round surface-section flex-auto"></div>
+          </div>
         </div>
       </div>
-      </div>
-        </ProjectLayout>
-    );
+    </ProjectLayout>
+  );
 };
 
 const mapState = (state) => {
-    const { user, isLoggedIn } = state.auth;
-    return { user, isLoggedIn };
+  const { user, isLoggedIn } = state.auth;
+  return { user, isLoggedIn };
 };
 
 const mapDispatch = (dispatch) => ({
-    alert: (data) => dispatch.toast.alert(data),
+  alert: (data) => dispatch.toast.alert(data),
 });
 
 export default connect(mapState, mapDispatch)(SingleProjectClustersPage);

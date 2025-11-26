@@ -1,12 +1,12 @@
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import React, { useState, useRef, useEffect} from 'react';
-import _ from 'lodash';
-import { Button } from 'primereact/button';
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
+import React, { useState, useRef, useEffect } from "react";
+import _ from "lodash";
+import { Button } from "primereact/button";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import UploadService from "../../../services/UploadService";
-import { InputText } from 'primereact/inputtext';
+import { InputText } from "primereact/inputtext";
 import { Dialog } from "primereact/dialog";
 import { MultiSelect } from "primereact/multiselect";
 import DownloadCSV from "../../../utils/DownloadCSV";
@@ -18,30 +18,62 @@ import DuplicateIcon from "../../../assets/media/Duplicate.png";
 import DeleteIcon from "../../../assets/media/Trash.png";
 import { Checkbox } from "primereact/checkbox";
 
-const TiersDataTable = ({ items, fields, onEditRow, onRowDelete, onRowClick, searchDialog, setSearchDialog,   showUpload, setShowUpload,
-    showFilter, setShowFilter,
-    showColumns, setShowColumns, onClickSaveFilteredfields ,
-    selectedFilterFields, setSelectedFilterFields,
-    selectedHideFields, setSelectedHideFields, onClickSaveHiddenfields, loading, user,   selectedDelete,
-  setSelectedDelete, onCreateResult}) => {
-    const dt = useRef(null);
-    const urlParams = useParams();
-    const [globalFilter, setGlobalFilter] = useState('');
+const TiersDataTable = ({
+  items,
+  fields,
+  onEditRow,
+  onRowDelete,
+  onRowClick,
+  searchDialog,
+  setSearchDialog,
+  showUpload,
+  setShowUpload,
+  showFilter,
+  setShowFilter,
+  showColumns,
+  setShowColumns,
+  onClickSaveFilteredfields,
+  selectedFilterFields,
+  setSelectedFilterFields,
+  selectedHideFields,
+  setSelectedHideFields,
+  onClickSaveHiddenfields,
+  loading,
+  user,
+  selectedDelete,
+  setSelectedDelete,
+  onCreateResult,
+}) => {
+  const dt = useRef(null);
+  const urlParams = useParams();
+  const [globalFilter, setGlobalFilter] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
   const [data, setData] = useState([]);
 
-const pTemplate0 = (rowData, { rowIndex }) => <p >{rowData.tierName}</p>
-const pTemplate1 = (rowData, { rowIndex }) => <p >{rowData.storage}</p>
-const pTemplate2 = (rowData, { rowIndex }) => <p >{rowData.ram}</p>
-const pTemplate3 = (rowData, { rowIndex }) => <p >{rowData.vCpu}</p>
-const pTemplate4 = (rowData, { rowIndex }) => <p >{rowData.basePrice}</p>
-const pTemplate5 = (rowData, { rowIndex }) => <p >{rowData.markedUpPrice}</p>
-const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
-    const editTemplate = (rowData, { rowIndex }) => <Button onClick={() => onEditRow(rowData, rowIndex)} icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`} className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`} />;
-    const deleteTemplate = (rowData, { rowIndex }) => <Button onClick={() => onRowDelete(rowData._id)} icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text" />;
-    
-      const checkboxTemplate = (rowData) => (
+  const pTemplate0 = (rowData, { rowIndex }) => <p>{rowData.tierName}</p>;
+  const pTemplate1 = (rowData, { rowIndex }) => <p>{rowData.storage}</p>;
+  const pTemplate2 = (rowData, { rowIndex }) => <p>{rowData.ram}</p>;
+  const pTemplate3 = (rowData, { rowIndex }) => <p>{rowData.vCpu}</p>;
+  const pTemplate4 = (rowData, { rowIndex }) => <p>{rowData.basePrice}</p>;
+  const pTemplate5 = (rowData, { rowIndex }) => <p>{rowData.markedUpPrice}</p>;
+  const pTemplate6 = (rowData, { rowIndex }) => <p>{rowData.finalPrice}</p>;
+  const editTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onEditRow(rowData, rowIndex)}
+      icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`}
+      className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`}
+    />
+  );
+  const deleteTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onRowDelete(rowData._id)}
+      icon="pi pi-times"
+      className="p-button-rounded p-button-danger p-button-text"
+    />
+  );
+
+  const checkboxTemplate = (rowData) => (
     <Checkbox
       checked={selectedItems.some((item) => item._id === rowData._id)}
       onChange={(e) => {
@@ -82,7 +114,7 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
       console.error("Failed to delete selected records", error);
     }
   };
-    
+
   const handleMessage = () => {
     setShowDialog(true); // Open the dialog
   };
@@ -91,10 +123,10 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
     setShowDialog(false); // Close the dialog
   };
 
-    return (
-        <>
-        <DataTable 
-           value={items}
+  return (
+    <>
+      <DataTable
+        value={items}
         ref={dt}
         removableSort
         onRowClick={onRowClick}
@@ -112,24 +144,78 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
         selection={selectedItems}
         onSelectionChange={(e) => setSelectedItems(e.value)}
         onCreateResult={onCreateResult}
-        >
-                <Column
+      >
+        <Column
           selectionMode="multiple"
           headerStyle={{ width: "3rem" }}
           body={checkboxTemplate}
         />
-<Column field="tierName" header="tier_name" body={pTemplate0} filter={selectedFilterFields.includes("tierName")} hidden={selectedHideFields?.includes("tierName")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="storage" header="Storage" body={pTemplate1} filter={selectedFilterFields.includes("storage")} hidden={selectedHideFields?.includes("storage")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="ram" header="RAM" body={pTemplate2} filter={selectedFilterFields.includes("ram")} hidden={selectedHideFields?.includes("ram")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="vCpu" header="vCPU" body={pTemplate3} filter={selectedFilterFields.includes("vCpu")} hidden={selectedHideFields?.includes("vCpu")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="basePrice" header="Base Price" body={pTemplate4} filter={selectedFilterFields.includes("basePrice")} hidden={selectedHideFields?.includes("basePrice")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="markedUpPrice" header="Marked Up Price" body={pTemplate5} filter={selectedFilterFields.includes("markedUpPrice")} hidden={selectedHideFields?.includes("markedUpPrice")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="finalPrice" header="Final Price" body={pTemplate6} filter={selectedFilterFields.includes("finalPrice")} hidden={selectedHideFields?.includes("finalPrice")}  sortable style={{ minWidth: "8rem" }} />
-            <Column header="Edit" body={editTemplate} />
-            <Column header="Delete" body={deleteTemplate} />
-            
-        </DataTable>
-
+        <Column
+          field="tierName"
+          header="tier_name"
+          body={pTemplate0}
+          filter={selectedFilterFields.includes("tierName")}
+          hidden={selectedHideFields?.includes("tierName")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="storage"
+          header="Storage"
+          body={pTemplate1}
+          filter={selectedFilterFields.includes("storage")}
+          hidden={selectedHideFields?.includes("storage")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="ram"
+          header="RAM"
+          body={pTemplate2}
+          filter={selectedFilterFields.includes("ram")}
+          hidden={selectedHideFields?.includes("ram")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="vCpu"
+          header="vCPU"
+          body={pTemplate3}
+          filter={selectedFilterFields.includes("vCpu")}
+          hidden={selectedHideFields?.includes("vCpu")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="basePrice"
+          header="Base Price"
+          body={pTemplate4}
+          filter={selectedFilterFields.includes("basePrice")}
+          hidden={selectedHideFields?.includes("basePrice")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="markedUpPrice"
+          header="Marked Up Price"
+          body={pTemplate5}
+          filter={selectedFilterFields.includes("markedUpPrice")}
+          hidden={selectedHideFields?.includes("markedUpPrice")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="finalPrice"
+          header="Final Price"
+          body={pTemplate6}
+          filter={selectedFilterFields.includes("finalPrice")}
+          hidden={selectedHideFields?.includes("finalPrice")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column header="Edit" body={editTemplate} />
+        <Column header="Delete" body={deleteTemplate} />
+      </DataTable>
 
       {selectedItems.length > 0 ? (
         <div
@@ -305,20 +391,28 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
         </div>
       ) : null}
 
-
-        <Dialog header="Upload Tiers Data" visible={showUpload} onHide={() => setShowUpload(false)}>
-        <UploadService 
-          user={user} 
-          serviceName="tiers"            
+      <Dialog
+        header="Upload Tiers Data"
+        visible={showUpload}
+        onHide={() => setShowUpload(false)}
+      >
+        <UploadService
+          user={user}
+          serviceName="tiers"
           onUploadComplete={() => {
             setShowUpload(false); // Close the dialog after upload
-          }}/>
+          }}
+        />
       </Dialog>
 
-      <Dialog header="Search Tiers" visible={searchDialog} onHide={() => setSearchDialog(false)}>
-      Search
-    </Dialog>
-    <Dialog
+      <Dialog
+        header="Search Tiers"
+        visible={searchDialog}
+        onHide={() => setSearchDialog(false)}
+      >
+        Search
+      </Dialog>
+      <Dialog
         header="Filter Users"
         visible={showFilter}
         onHide={() => setShowFilter(false)}
@@ -343,7 +437,7 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
             console.log(selectedFilterFields);
             onClickSaveFilteredfields(selectedFilterFields);
             setSelectedFilterFields(selectedFilterFields);
-            setShowFilter(false)
+            setShowFilter(false);
           }}
         ></Button>
       </Dialog>
@@ -373,12 +467,12 @@ const pTemplate6 = (rowData, { rowIndex }) => <p >{rowData.finalPrice}</p>
             console.log(selectedHideFields);
             onClickSaveHiddenfields(selectedHideFields);
             setSelectedHideFields(selectedHideFields);
-            setShowColumns(false)
+            setShowColumns(false);
           }}
         ></Button>
       </Dialog>
-        </>
-    );
+    </>
+  );
 };
 
 export default TiersDataTable;

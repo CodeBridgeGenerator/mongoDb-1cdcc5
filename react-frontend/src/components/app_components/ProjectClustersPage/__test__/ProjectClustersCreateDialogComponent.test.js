@@ -9,13 +9,15 @@ import { Provider } from "react-redux";
 import * as models from "../../../models";
 
 test("renders projectClusters create dialog", async () => {
-    const store = init({ models });
-    render(
-        <Provider store={store}>
-            <MemoryRouter>
-                <ProjectClustersCreateDialogComponent show={true} />
-            </MemoryRouter>
-        </Provider>
-    );
-    expect(screen.getByRole("projectClusters-create-dialog-component")).toBeInTheDocument();
+  const store = init({ models });
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ProjectClustersCreateDialogComponent show={true} />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(
+    screen.getByRole("projectClusters-create-dialog-component"),
+  ).toBeInTheDocument();
 });

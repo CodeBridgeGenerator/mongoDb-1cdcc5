@@ -1,9 +1,9 @@
 [
-    {
-        "projectId": "svsdv",
-        "tierName": "fdv",
-        "billingCycle": "monthly",
-        "status": "active",
-        "invoiceId": "invsvdsv"
-    }
+  {
+    "projectId": "svsdv",
+    "tierName": "fdv",
+    "billingCycle": "monthly",
+    "status": "active",
+    "invoiceId": "invsvdsv"
+  }
 ]

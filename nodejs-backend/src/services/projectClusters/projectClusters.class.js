@@ -1,5 +1,3 @@
 const { Service } = require("feathers-mongoose");
 
-exports.ProjectClusters = class ProjectClusters extends Service {
-  
-};
+exports.ProjectClusters = class ProjectClusters extends Service {};
