@@ -1,0 +1,22 @@
+[
+    {
+        "env": "prd",
+        "envName": "Production"
+    },
+    {
+        "env": "stg",
+        "envName": "Staging"
+    },
+    {
+        "env": "uat",
+        "envName": "User Acceptance Testing"
+    },
+    {
+        "env": "sit",
+        "envName": "System Intergration Testing"
+    },
+    {
+        "env": "tst",
+        "envName": "Testing"
+    }
+]

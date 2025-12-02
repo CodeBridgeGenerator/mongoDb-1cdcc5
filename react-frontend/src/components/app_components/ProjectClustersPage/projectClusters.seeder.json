@@ -1,0 +1,522 @@
+[
+    {
+        "projectId": "sdfsdf",
+        "clusterName": "Cluster 1",
+        "tierName": "vvsdv",
+        "provider": "google cloud",
+        "region": "South Carolina (us-east1)",
+        "status": "vsdc"
+    },
+    {
+        "provider": "google cloud",
+        "region": "N. Virginia (us-east4)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Ohio (us-east5)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Los Angeles (us-west2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Salt Lake City (us-west3)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Las Vegas (us-west4)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Dallas (us-south1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Iowa (us-central1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Oregon (us-west1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Montreal (northamerica-northeast1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Toronto (northamerica-northeast2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Queretaro (northamerica-south1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Sao Paulo (southamerica-east1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Santiago (southamerica-west1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Warsaw (europe-central2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Belgium (europe-west1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Finland (europe-north1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "London (europe-west2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Frankfurt (europe-west3)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Netherlands (europe-west4)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Zurich (europe-west6)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Milan (europe-west8)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Paris (europe-west9)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Berlin (europe-west10)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Turin (europe-west12)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Madrid (europe-southwest1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Doha (me-central1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Dammam (me-central2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Tel Aviv (me-west1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Sydney (australia-southeast1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Melbourne (australia-southeast2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Taiwan (asia-east1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Tokyo (asia-northeast1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Osaka (asia-northeast2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Seoul (asia-northeast3)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Singapore (asia-southeast1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Hong Kong (asia-east2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Jakarta (asia-southeast2)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Mumbai (asia-south1)"
+    },
+    {
+        "provider": "google cloud",
+        "region": "Delhi (asia-south2)"
+    },
+    {
+        "provider": "aws",
+        "region": "N. Virginia (us-east-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Ohio (us-east-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "N. California (us-west-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Oregon (us-west-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Montreal (ca-central-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Calgary (ca-west-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Mexico (mx-central-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Sao Paulo (sa-east-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Stockholm (eu-north-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Ireland (eu-west-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "London (eu-west-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Paris (eu-west-3)"
+    },
+    {
+        "provider": "aws",
+        "region": "Frankfurt (eu-central-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Zurich (eu-central-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Milan (eu-south-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Spain (eu-south-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "UAE (me-central-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Bahrain (me-south-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Tel Aviv (il-central-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Cape Town (af-south-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Sydney (ap-southeast-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Melbourne (ap-southeast-4)"
+    },
+    {
+        "provider": "aws",
+        "region": "Auckland (ap-southeast-6)"
+    },
+    {
+        "provider": "aws",
+        "region": "Hong Kong (ap-east-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Taipei (ap-east-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Jakarta (ap-southeast-3)"
+    },
+    {
+        "provider": "aws",
+        "region": "Malaysia (ap-southeast-5)"
+    },
+    {
+        "provider": "aws",
+        "region": "Thailand (ap-southeast-7)"
+    },
+    {
+        "provider": "aws",
+        "region": "Tokyo (ap-northeast-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Seoul (ap-northeast-2)"
+    },
+    {
+        "provider": "aws",
+        "region": "Osaka (ap-northeast-3)"
+    },
+    {
+        "provider": "aws",
+        "region": "Singapore (ap-southeast-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Mumbai (ap-south-1)"
+    },
+    {
+        "provider": "aws",
+        "region": "Hyderabad (ap-south-2)"
+    },
+    {
+        "provider": "azure",
+        "region": "Iowa (centralus)"
+    },
+    {
+        "provider": "azure",
+        "region": "Virginia (eastus)"
+    },
+    {
+        "provider": "azure",
+        "region": "Virginia-East2 (eastus2)"
+    },
+    {
+        "provider": "azure",
+        "region": "Illinois (northcentralus)"
+    },
+    {
+        "provider": "azure",
+        "region": "California (westus)"
+    },
+    {
+        "provider": "azure",
+        "region": "Texas (southcentralus)"
+    },
+    {
+        "provider": "azure",
+        "region": "Wyoming (westcentralus)"
+    },
+    {
+        "provider": "azure",
+        "region": "Washington (westus2)"
+    },
+    {
+        "provider": "azure",
+        "region": "Arizona (westus3)"
+    },
+    {
+        "provider": "azure",
+        "region": "Quebec City (canadaeast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Toronto (canadacentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Queretaro (mexicocentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Sao Paulo (brazilsouth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Rio de Janeiro (brazilsoutheast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Santiago (chilecentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Ireland (northeurope)"
+    },
+    {
+        "provider": "azure",
+        "region": "Netherlands (westeurope)"
+    },
+    {
+        "provider": "azure",
+        "region": "Frankfurt (germanywestcentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Berlin (germanynorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Zurich (switzerlandnorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Geneva (switzerlandwest)"
+    },
+    {
+        "provider": "azure",
+        "region": "Gävle (swedencentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Staffanstorp (swedensouth)"
+    },
+    {
+        "provider": "azure",
+        "region": "London (uksouth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Cardiff (ukwest)"
+    },
+    {
+        "provider": "azure",
+        "region": "Paris (francecentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Marseille (francesouth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Oslo (norwayeast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Stavanger (norwaywest)"
+    },
+    {
+        "provider": "azure",
+        "region": "Warsaw (polandcentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Milan (italynorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Madrid (spaincentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Dubai (uaenorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Abu Dhabi (uaecentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Qatar (qatarcentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Israel (israelcentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Johannesburg (southafricanorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Cape Town (southafricawest)"
+    },
+    {
+        "provider": "azure",
+        "region": "New South Wales (australiaeast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Victoria (australiasoutheast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Canberra (australiacentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Canberra (australiacentral2)"
+    },
+    {
+        "provider": "azure",
+        "region": "Auckland (newzealandnorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Auckland (newzealandnorth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Pune (centralindia)"
+    },
+    {
+        "provider": "azure",
+        "region": "Mumbai (westindia)"
+    },
+    {
+        "provider": "azure",
+        "region": "Chennai (southindia)"
+    },
+    {
+        "provider": "azure",
+        "region": "Hong Kong (eastasia)"
+    },
+    {
+        "provider": "azure",
+        "region": "Tokyo (japaneast)"
+    },
+    {
+        "provider": "azure",
+        "region": "Osaka (japanwest)"
+    },
+    {
+        "provider": "azure",
+        "region": "Singapore (southeastasia)"
+    },
+    {
+        "provider": "azure",
+        "region": "Seoul (koreacentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Busan (koreasouth)"
+    },
+    {
+        "provider": "azure",
+        "region": "Jakarta (indonesiacentral)"
+    },
+    {
+        "provider": "azure",
+        "region": "Kuala Lumpur (malaysiawest)"
+    }
+]
